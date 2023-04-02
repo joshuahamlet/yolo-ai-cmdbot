@@ -2,7 +2,9 @@ import openai
 import dotenv
 import os
 import sys
-from setup_utils import get_full_prompt, read_config
+from setup_utils import get_full_prompt
+import asyncio
+
 
 def set_api_key(config):
     # Two options for the user to specify they openai api key.
@@ -24,7 +26,8 @@ def set_api_key(config):
     if not openai.api_key:
         openai.api_key = config["openai_api_key"]
 
-def call_open_ai(query, config):
+
+async def call_open_ai(query, config):
     # Unix based SHELL (/bin/bash, /bin/zsh), otherwise assuming it's Windows
     shell = os.environ.get("SHELL", "powershell.exe")
 
@@ -41,7 +44,7 @@ def call_open_ai(query, config):
     # print(prompt)
 
     # Call the ChatGPT API
-    response = openai.ChatCompletion.create(
+    response = await asyncio.to_thread(openai.ChatCompletion.create,
         model=config["model"],
         messages=[
             {"role": "system", "content": system_prompt},

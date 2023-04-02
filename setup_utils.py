@@ -47,7 +47,8 @@ def get_full_prompt(user_prompt, shell):
 
     # Load the prompt and prep it
     prompt_file = os.path.join(prompt_path, "prompt.txt")
-    pre_prompt = open(prompt_file, "r").read()
+    with open(prompt_file, "r") as file:
+        pre_prompt = file.read()
     pre_prompt = pre_prompt.replace("{shell}", shell)
     pre_prompt = pre_prompt.replace("{os}", get_os_friendly_name())
     prompt = pre_prompt + user_prompt

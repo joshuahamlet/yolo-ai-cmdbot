@@ -1,0 +1,32 @@
+Button {
+    margin: 1 1;
+    border: none;
+    min-width: 7;
+    height: 1;
+    background: purple;
+}
+
+Input {
+  border: hkey purple; 
+  height: 3;
+}
+
+LoadingIndicator {
+  height: 3;
+  color: purple;
+  content-align: left middle;
+  margin-left: 2;
+  border: hkey purple; 
+}
+
+ContentSwitcher {
+  height: 3;
+}
+
+Horizontal {
+  height: 3;
+}
+
+Static {
+  margin-left: 2;
+}
