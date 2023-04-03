@@ -17,6 +17,8 @@ class InputApp(App):
     BINDINGS = [
         ("m", "modify", "modify"),
         ("e", "edit", "edit"),
+        ("q", "escape", "escape"),
+        ("escape", "unfocus", "unfocus"),
     ]
 
     def action_modify(self):
@@ -24,6 +26,9 @@ class InputApp(App):
 
     def action_edit(self):
         self.query_one("#command", Input).focus()
+    
+    def action_unfocus(self):
+        self.set_focus(None)
 
 
     def watch_res_command(self):
