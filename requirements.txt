@@ -5,4 +5,4 @@ python-dotenv==1.0.0
 distro==1.7.0
 PyYAML==5.4.1
 pyperclip==1.8.2
-tetxtualize==0.17.0
+tetxtual==0.17.0
