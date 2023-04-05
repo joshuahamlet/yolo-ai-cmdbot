@@ -37,12 +37,18 @@ def prompt_user_input(response):
         return user_input
 
 
-def evaluate_input(user_input, command):
+def evaluate_input(user_input, command, shell):
     if user_input.upper() == "Y" or user_input == "":
         if shell == "powershell.exe":
+            print()
+            print("running: ", colored(command, 'blue'))
+            print()
             subprocess.run([shell, "/c", command], shell=False)
         else:
             # Unix: /bin/bash /bin/zsh: uses -c both Ubuntu and macOS should work, others might not
+            print()
+            print("running: ", colored(command, 'blue'))
+            print()
             subprocess.run([shell, "-c", command], shell=False)
 
     if user_input.upper() == "M":
@@ -59,12 +65,13 @@ def evaluate_input(user_input, command):
         if os.name == "posix" and missing_posix_display():
             return
         pyperclip.copy(command)
+        print()
         print("Copied command to clipboard.")
 
 
-res_command = call_open_ai(user_prompt, config)
-check_for_issue(res_command)
-check_for_markdown(res_command)
-user_iput = prompt_user_input(res_command)
-print()
-evaluate_input(user_iput, res_command)
+#res_command = call_open_ai(user_prompt, config)
+#check_for_issue(res_command)
+#check_for_markdown(res_command)
+#user_input = prompt_user_input(res_command)
+#print()
+#evaluate_input(user_input, res_command)

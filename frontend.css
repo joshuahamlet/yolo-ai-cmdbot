@@ -8,6 +8,7 @@ Button {
 
 Input {
   border: hkey purple; 
+  background: #282828;
   height: 3;
 }
 
@@ -15,8 +16,9 @@ LoadingIndicator {
   height: 3;
   color: purple;
   content-align: left middle;
-  margin-left: 2;
+  padding-left: 2;
   border: hkey purple; 
+  background: #282828;
 }
 
 ContentSwitcher {
@@ -27,6 +29,20 @@ Horizontal {
   height: 3;
 }
 
-Static {
-  margin-left: 2;
+Label {
+  background: purple;
+  padding: 0 1;
+  margin: 0 1;
+}
+
+Hint {
+  background: purple;
+}
+
+Footer {
+  background: purple;
+}
+
+Footer > .footer--key {
+  background: #5b0a91;
 }
